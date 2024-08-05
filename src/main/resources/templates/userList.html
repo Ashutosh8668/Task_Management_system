@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/styles/style.css">
+</head>
+<body>
+<header class="bg-primary text-white text-center py-3">
+    <h1>Task Management System</h1>
+    <nav>
+        <a class="text-white mx-2" href="/">Home</a>
+        <a class="text-white mx-2" href="/tasks/completed">Completed Tasks</a>
+        <a class="text-white mx-2" href="/users">Users</a>
+    </nav>
+</header>
+
+<main class="container my-4">
+    <div class="mb-3">
+        <a class="btn btn-success" href="/users/new">Add User</a>
+    </div>
+    <h2>All Users</h2>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="user : ${users}">
+            <td th:text="${user.name}">User Name</td>
+            <td th:text="${user.email}">User Email</td>
+            <td>
+                <a class="btn btn-primary" th:href="@{/users/edit/{id}(id=${user.id})}">Edit</a>
+                <form th:action="@{/users/{id}/delete(id=${user.id})}" method="post" style="display:inline;">
+                    <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Task Management</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<header>
+    <h1>Task Management</h1>
+    <nav>
+        <a th:href="@{/}">Home</a>
+        <a th:href="@{/completed}">Completed Tasks</a>
+    </nav>
+</header>
+<div th:insert="~{::content}"></div>
+</body>
+</html>

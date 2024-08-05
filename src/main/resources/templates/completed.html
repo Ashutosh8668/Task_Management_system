@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Completed Tasks</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+<header class="bg-primary text-white text-center py-3">
+    <h1>Task Management System</h1>
+    <nav>
+        <a class="text-white mx-2" href="/">Home</a>
+        <a class="text-white mx-2" href="/tasks/completed">Completed Tasks</a>
+    </nav>
+</header>
+
+<main class="container my-4">
+    <h2>Completed Tasks</h2>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Priority</th>
+            <th>Due Date</th>
+            <th>Status</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="task : ${completedTasks}">
+            <td th:text="${task.title}">Task Title</td>
+            <td th:text="${task.description}">Task Description</td>
+            <td th:text="${task.priority}">Priority</td>
+            <td th:text="${task.dueDate}">Due Date</td>
+            <td th:text="${task.status}">Status</td>
+        </tr>
+        </tbody>
+    </table>
+</main>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
